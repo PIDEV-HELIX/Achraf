@@ -1,0 +1,64 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} {% endblock %}
+{% block strong %} {%  endblock %}
+
+    {% block h2 %} {% endblock %}
+
+    {% block path %} {{ path('Categorie_Affiche') }} {% endblock %}
+
+{% block body %}
+
+
+
+    <div class="row clearfix">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>catégorie</strong> List  </h2>
+                    <ul class="header-dropdown">
+                        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                            <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                <li><a href="{{ path('Categorie_Ajout') }}">new categorie</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="body table-responsive members_profiles">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Nom Categorie</th>
+                            <th>Action</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for c in categories %}
+                            <tr>
+
+                                <td>{{ c.nom }}</td>
+
+                                <td>
+                                    <ul>
+
+
+                                        <li>
+                                            <a href="{{ path('Categorie_Supprimer', { 'id': c.id }) }}">delete</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

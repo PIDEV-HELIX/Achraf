@@ -1,0 +1,38 @@
+<h2> rechercher etudiant by niveau</h2>
+<form method="POST">
+    <input type="text" name="subject">
+    <input type="submit" value="recherche">
+</form>
+
+<table border="2">
+    <tr>
+<th style="width:60px;">m ID</th>
+<th>Sender</th>
+<th>Receiver</th>
+<th>Subject</th>
+<th>Object</th>
+<th>Time</th>
+
+
+</tr>
+
+{% for m in mail %}
+<tr>
+
+    <td>{{ m.id }}</a></td>
+    <td>
+        <a href="javascript:void(0);">{{ m.mailfrom }}</a>
+    </td>
+    <td>
+        <a href="javascript:void(0);">{{ m.mailto }}</a>
+    </td>
+
+    <td>{{ m.subject }}</td>
+    <td>{{ m.object }}</td>
+    <td>{{ m.time|date('Y-m-d\\TH:i:sP') }}</td>
+
+
+
+</tr>
+{% endfor %}
+</table>

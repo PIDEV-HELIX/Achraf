@@ -1,0 +1,91 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} {% endblock %}
+{% block strong %} {%  endblock %}
+
+    {% block h2 %} {% endblock %}
+
+    {% block path %} {{ path('rec_index') }} {% endblock %}
+
+{% block body %}
+
+
+
+    <div class="row clearfix">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>recs</strong> List  </h2>
+                            <ul class="header-dropdown">
+                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                        <li><a href="{{ path('rec_new') }}">new rec</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="body table-responsive members_profiles">
+                            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                            <br>
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+
+                                    <th>rec ID</th>
+                                    <th>designation</th>
+                                    <th>etat</th>
+                                    <th>categorie</th>
+                                    <th>Action</th>
+
+                                </tr>
+                                </thead>
+
+                                <tbody id="myTable">
+                                {% for r in rec %}
+                                    <tr>
+
+
+                                        <td><a href="{{ path('rec_show', { 'id': r.id }) }}">{{ r.id }}</a></td>
+                                        <td>{{r.designation}}</td>
+                                        <td>{%  if r.etat == true %}
+                                                traité
+                                            {% else %}
+                                                en cours<br>
+                                            {% endif %}</td>
+                                        <td>{{ r.idc.nomR }}</td>
+
+                                        <td>
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ path('rec_show', { 'id': r.id }) }}">show</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('rec_edit', { 'id': r.id }) }}">Traiter</a>
+                                                </li>
+
+                                            </ul>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+{{ knp_pagination_render(rec) }}
+
+{% endblock %}

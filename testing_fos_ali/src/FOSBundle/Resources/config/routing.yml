@@ -1,0 +1,7 @@
+fos_homepage:
+    path:     /home
+    defaults: { _controller: FOSBundle:Security:redirect }
+
+admin_homepage:
+    path:     /back
+    defaults: { _controller: FOSBundle:Security:redirect }

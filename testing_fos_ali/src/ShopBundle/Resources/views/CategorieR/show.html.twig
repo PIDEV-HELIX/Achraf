@@ -1,0 +1,36 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} ADMIN {% endblock %}
+{% block strong %}catr ID {%  endblock %}
+
+    {% block h2 %} -  {{ catr.idc }}{% endblock %}
+
+    {% block path %} {{ path('catr_index') }} {% endblock %}
+
+{% block body %}
+
+    <div class="row clearfix">
+        <div class="col-lg-8 col-md-12">
+            <div class="card">
+                <div class="tab-content">
+
+                    <div class="tab-pane body active" id="about">
+
+                        <a role="button" class="boxs-close float-lg-right" href="{{ path('catr_delete',{ 'idc': catr.idc })}}"> Delete Ad <i class="zmdi zmdi-close"></i></a>
+
+
+
+                        <small class="text-muted">Categorie: </small>
+                        <p>{{ catr.nomR }}</p>
+                        <hr>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

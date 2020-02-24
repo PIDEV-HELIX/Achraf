@@ -1,0 +1,82 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} {% endblock %}
+{% block strong %} {%  endblock %}
+
+    {% block h2 %} {% endblock %}
+
+    {% block path %} {{ path('Produit_Affiche') }} {% endblock %}
+
+{% block body %}
+
+
+
+    <div class="row clearfix">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>Produit</strong> List  </h2>
+                    <ul class="header-dropdown">
+                        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                            <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                <li><a href="{{ path('Produit_Ajouter') }}">new produit</a></li>
+                                <li><a href="{{ path('Produit_Stat') }}">Statistique</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="body table-responsive members_profiles">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <!--th style="width:60px;">Soc Logo</th-->
+                            <th>produit ID</th>
+                            <th>nom</th>
+                            <th>prix</th>
+                            <th>quantite</th>
+                            <th>description</th>
+                            <th>categorie</th>
+                            <th>image</th>
+                            <th>Action</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for p in produit %}
+                            <tr>
+
+
+                                <td>{{p.idp }}</td>
+                                <td>{{p.nom }}</td>
+                                <td>{{p.prix}}</td>
+                                <td>{{p.quantite }}</td>
+                                <td>{{p.description }}</td>
+                                <td>{{p.id.nom }}</td>
+                                <td><img src="{{ asset('Upload/')}}{{ p.nomfile }}" width="100" class="img-circle" /></td>
+
+
+
+
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('Produit_Supprimer', { 'idp': p.idp }) }}">supprimer</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('Produit_Modifier', { 'idp': p.idp }) }}">edit</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

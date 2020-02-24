@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="banner">
+        <div class="">
+            <img src="{{asset('template/images/hands.jpg')}}" alt="image" width="100%" height="400px">
+        </div>
+        <div class="bennertext">
+            <div class="innertitle">
+                <h2>We proud to share with you <br>
+                    our loyal partners</h2>
+                <p>You can feel free to contact them about your upcoming offers<br> sales, or competitions</p>
+            </div>
+        </div>
+        <span class="banner-title">About Soc</span>
+    </section>
+    <section class="Company-overview">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>
+                        Soc Overview
+                    </h2>
+                    <p>
+                        {{ soc.description }}
+
+                    </p>
+                    <p>
+                        {{ soc.email }}
+                    </p>
+                    <p>
+                        {{ soc.address}}
+                    </p>
+                    <p>
+                       +216 {{ soc.tel }}
+                    </p>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <img src="{{ asset('uploads/images/' ~ soc.logo) }}" alt="image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+{%  endblock %}

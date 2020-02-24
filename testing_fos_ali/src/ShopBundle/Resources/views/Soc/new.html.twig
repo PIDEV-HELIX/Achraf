@@ -1,0 +1,127 @@
+{% extends 'admin.html.twig' %}
+
+
+{% block strong %}Soc{%  endblock %}
+
+{%  block h2 %} Information {% endblock %}
+
+{% block path %}
+    {{ path('soc_index') }}
+{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="block-header">
+
+
+                    </div>
+                    <div class="body">
+
+                        {{ form_start(form,{'attr': {'class': 'form-horizontal', 'novalidate':'novalidate'}}) }}
+
+                        <div class="row clearfix">
+                            <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+                                <label for="email_address_2">Soc Logo</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-8">
+                                <div class="form-group">
+                                    {{ form_widget(form.logo,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+                                {% if((form_errors(form.logo)==true)) %}
+                                <div class="alert alert-primary" role="alert">
+                                    Missing your logo!
+                                </div>  {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="row clearfix">
+                            <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+                                <label for="email_address_2">Soc Name</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-8">
+                                <div class="form-group">
+                                    {{ form_widget(form.names,{'attr': {'class': 'form-control','placeholder':'Soc name...'}}) }}
+                                </div>
+                                {% if((form_errors(form.names)==true)) %}
+                                <div class="alert alert-primary" role="alert">
+                                    Missing name of Soc de livraison!
+                                </div>  {% endif %}
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+                                <label for="password_2">Address</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-8">
+                                <div class="form-group">
+                                    {{ form_widget(form.address,{'attr': {'class': 'form-control','placeholder':'Address...'}}) }}
+                                </div>
+                                {% if((form_errors(form.address)==true)) %}
+                                <div class="alert alert-primary" role="alert">
+                                    Missing the adresse!
+                                </div>  {% endif %}
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+                                <label for="email_address_2">Email Address</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-8">
+                                <div class="form-group">
+                                    {{ form_widget(form.email,{'attr': {'class': 'form-control','placeholder':'xxxxx@xxx'}}) }}
+                                </div>
+                                {% if((form_errors(form.email)==true)) %}
+                                <div class="alert alert-primary" role="alert">
+                                    The Entered email is invalid!
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+                                <label for="password_2">Phone Number</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-8">
+                                <div class="form-group">
+                                    {{ form_widget(form.tel,{'attr': {'class': 'form-control','placeholder':'Phone number...'}}) }}
+                                </div>
+                                {% if((form_errors(form.tel)==true)) %}
+                                <div class="alert alert-primary" role="alert">
+                                    Missing phone number!
+                                </div>  {% endif %}
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+                                <label for="password_2">Description</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-8">
+                                <div class="form-group">
+                                    {{ form_widget(form.description,{'attr': {'class': 'form-control','placeholder':'Description...'}}) }}
+                                </div>
+                                {% if((form_errors(form.description)==true)) %}
+                                <div class="alert alert-primary" role="alert">
+                                    Write a brief description!
+                                </div>  {% endif %}
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+
+                            <div class="col-sm-8 offset-sm-2">
+                                <input type="submit" class="btn btn-raised btn-primary btn-round waves-effect" value="Add">
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} Adminstrator{% endblock %}
+
+{% block strong %}{%  endblock %}
+
+{%  block h2 %} {% endblock %}
+
+{% block path %}
+    {{ path('livr_indexAdmin') }}
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="row clearfix">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>livrs</strong> List  </h2>
+                    <ul class="header-dropdown">
+                        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                            <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                <li><a href="{{ path('livr_tri') }}">Trier suivant City</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="body table-responsive members_profiles">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th style="width:60px;">Livr</th>
+                            <th>Client Name</th>
+                            <th>city</th>
+                            <th>street</th>
+                            <th>ville</th>
+                            <th>codep</th>
+                            <th>Email</th>
+                            <th>tel</th>
+                            <th>modelivraison</th>
+                            <th>Status</th>
+                            <th>Action</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for livr in livrs %}
+                            <tr>
+
+
+                                <td><a href="{{ path('livr_show', { 'idv': livr.idv }) }}">{{ livr.idv }}</a></td>
+                                <td>
+                                    <a href="javascript:void(0);">{{ livr.namev }}</a>
+                                </td>
+                                <td>{{ livr.street }}</td>
+                                <td>{{ livr.cite }}</td>
+                                <td>{{ livr.ville }}</td>
+                                <td>{{ livr.codep }}</td>
+                                <td>{{ livr.emailv }}</td>
+                                <td>{{ livr.tel }}</td>
+                                <td>{{ livr.modelivrraison }}</td>
+                                {% if livr.status==0%}
+                                <td>Envoyé</td>
+                                {% else %}
+                                    <td>Traité</td>
+
+                                {% endif %}
+
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('livr_show', { 'idv': livr.idv }) }}">show</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('livr_edit', { 'idv': livr.idv }) }}">edit</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('livr_trait', { 'idv': livr.idv }) }}">Traiter</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('livr_pdf')}}">pdf</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

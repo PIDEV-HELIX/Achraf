@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section class="companies-info">
+        <div class="container">
+            <div class="company-title">
+                <h3>All Socs</h3>
+            </div><!--company-title end-->
+            <div class="companies-list">
+                <div class="row">
+
+                    {% for soc in socs %}
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="company_profile_info">
+                            <div class="company-up-info">
+                                <img src="{{ asset('uploads/images/' ~ soc.logo) }}" alt="">
+                                <h3>{{ soc.names }}</h3>
+                                <h4>{{soc.address }}</h4>
+                                <ul>
+
+                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i> Contact</a></li>
+                                    <li><a href="{{ path('soc_user_show', { 'ids': soc.ids }) }}" title="" class="follow">View</a></li>
+                                </ul>
+                            </div>
+
+                        </div><!--company_profile_info end-->
+                    </div>
+                    {%  endfor %}
+                </div>
+            </div><!--companies-list end-->
+            <div class="process-comm">
+                <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div><!--process-comm end-->
+        </div>
+    </section><!--companies-info end-->
+
+{%  endblock %}

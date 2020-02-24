@@ -1,0 +1,50 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} ADMIN {% endblock %}
+{% block strong %}societe ID {%  endblock %}
+
+    {% block h2 %} -  {{ societe.ids }}{% endblock %}
+
+    {% block path %} {{ path('societe_index') }} {% endblock %}
+
+{% block body %}
+
+    <div class="row clearfix">
+            <div class="col-lg-8 col-md-12">
+                <div class="card">
+                    <div class="tab-content">
+
+                        <div class="tab-pane body active" id="about">
+
+                                <a role="button" class="boxs-close float-lg-right" href="{{ path('societe_delete',{ 'ids': societe.ids })}}"> Delete Ad <i class="zmdi zmdi-close"></i></a>
+
+                            <div class="col-lg-12 col-md-4 col-12">
+                                <div class="profile-image "> <img src="{{ asset('uploads/images/' ~ societe.logo) }}"width="350" height="250" ></div>
+
+                            </div>
+
+                            <hr>
+                            <small class="text-muted">names </small>
+                            <p>{{ societe.names }}</p>
+                            <hr>
+
+                            <small class="text-muted">adresse </small>
+                            <p>{{ societe.address }}</p>
+                            <hr>
+                            <small class="text-muted">email </small>
+                            <p>{{ societe.email }}</p>
+                            <hr>
+                            <small class="text-muted">cat: </small>
+                            <p>{{ societe.idf.nomC }}</p>
+                            <hr>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+{% endblock %}

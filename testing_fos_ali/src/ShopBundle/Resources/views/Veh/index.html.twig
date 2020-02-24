@@ -1,0 +1,82 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} {% endblock %}
+{% block strong %} {%  endblock %}
+
+    {% block h2 %} {% endblock %}
+
+    {% block path %} {{ path('veh_index') }} {% endblock %}
+
+{% block body %}
+
+
+
+    <div class="row clearfix">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Vehs</strong> List  </h2>
+                            <ul class="header-dropdown">
+                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                        <li><a href="{{ path('veh_new') }}">new veh</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="body table-responsive members_profiles">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <!--th style="width:60px;">Soc Logo</th-->
+                                    <th>Veh ID</th>
+                                    <th style="width:60px;">Veh Logo</th>
+                                    <th>debut contrat</th>
+                                    <th>fin contrat</th>
+                                    <th>serie</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for veh in vehs %}
+                                    <tr>
+
+
+                                        <td><a href="{{ path('veh_show', { 'idad': veh.idad }) }}">{{ veh.idad }}</a></td>
+                                        <td>
+                                            <img class="rounded-circle" src="{{ asset('uploads/images/' ~ veh.ad) }}" height="40" width="40">
+                                        </td>
+                                        <td>{{veh.debutcontrat | date("d/m/Y") }}</td>
+                                        <td>{{ veh.fincontrat | date("d/m/Y")  }}</td>
+                                        <td>{{ veh.serie }}</td>
+                                        <td>{{ veh.status }}</td>
+
+                                        <td>
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ path('veh_show', { 'idad': veh.idad }) }}">show</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('veh_edit', { 'idad': veh.idad }) }}">edit</a>
+                                                </li>
+                                                <!--li>
+                                                    <a href="{{ path('veh_temps', { 'idad': veh.idad }) }}">change</a>
+                                                </li-->
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock %}

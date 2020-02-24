@@ -1,0 +1,89 @@
+{% extends 'base2.html.twig' %}
+{% block body %}
+    <div class="breadcrumb parallax">
+        <h1>Register Account</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Account</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 hidden-xs column-left" id="column-left">
+                <div class="Categories left-sidebar-widget">
+                    <div class="columnblock-title">Account</div>
+                    <div class="category_block">
+                        <ul class="box-category">
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">Register</a></li>
+                            <li><a href="forgetpassword.html">Forgotten Password</a></li>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Address Book</a></li>
+                            <li><a href="#">Wish List</a></li>
+                            <li><a href="#">Order History</a></li>
+                            <li><a href="#">Downloads</a></li>
+                            <li><a href="#">Reward Points</a></li>
+                            <li><a href="#">Transactions</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Newsletter</a></li>
+                            <li><a href="#">Recurring payments</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9" id="content">
+                <fieldset id="address">
+                    <legend>Editer une réclamation</legend>
+                    {{ form_start(form) }}
+                    <div class="form-group">
+                        <label for="input-firstname" class="col-sm-2 control-label">etat</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(form.etat,{'attr': {'class': 'form-control','placeholder':'etat'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="input-firstname" class="col-sm-2 control-label">designation</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(form.designation,{'attr': {'class': 'form-control','placeholder':'designation'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-firstname" class="col-sm-2 control-label">description</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(form.description,{'attr': {'class': 'form-control','placeholder':'description'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="input-firstname" class="col-sm-2 control-label">date</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(form.date,{'attr': {'class': 'form-control date','placeholder':'ex: 2017-01-01'}}) }}
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="input-firstname" class="col-sm-2 control-label">catégorie</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(form.idc) }}
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="input-firstname" class="col-sm-2 control-label">produit</label>
+                        <div class="col-sm-10">
+                            {{ form_widget(form.idp) }}
+                        </div>
+                    </div>
+
+                </fieldset>
+
+
+                <div class="buttons">
+                    <div class="pull-right">
+                        <input type="submit" class="btn btn-primary" value="Continue">
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

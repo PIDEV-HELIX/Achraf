@@ -1,0 +1,53 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} ADMIN {% endblock %}
+{% block strong %}Veh ID {%  endblock %}
+
+    {% block h2 %} -  {{ veh.idad }}{% endblock %}
+
+    {% block path %} {{ path('veh_index') }} {% endblock %}
+
+{% block body %}
+
+    <div class="row clearfix">
+            <div class="col-lg-8 col-md-12">
+                <div class="card">
+                    <div class="tab-content">
+
+                        <div class="tab-pane body active" id="about">
+
+                                <a role="button" class="boxs-close float-lg-right" href="{{ path('veh_delete',{ 'idad': veh.idad })}}"> Delete Ad <i class="zmdi zmdi-close"></i></a>
+
+                            <div class="col-lg-12 col-md-4 col-12">
+                                <div class="profile-image "> <img src="{{ asset('uploads/images/' ~ veh.ad) }}"width="350" height="250" ></div>
+
+                            </div>
+
+                            <hr>
+                            <small class="text-muted">Debut Contrat: </small>
+                            <p>{{ veh.debutcontrat| date("d/m/Y") }}</p>
+                            <hr>
+
+                            <small class="text-muted">fin contrat: </small>
+                            <p>{{ veh.fincontrat| date("d/m/Y") }}</p>
+                            <hr>
+                            <small class="text-muted">serie: </small>
+                            <p>{{ veh.serie }}</p>
+                            <hr>
+                            <small class="text-muted">Nombre de jour pour ce contrat: </small>
+                            <p>{{ j }} jours{% if m>0 %}, {{ m }} mois{% endif %}{% if y>0 %},{{ y }} years{% endif %}</p>
+                            <hr>
+                            <small class="text-muted">Nombre de jour pour ce contrat restant: </small>
+                            <p>
+                                {{ jj }} jours{% if mm>0 %}, {{ mm }} mois{% endif %}{% if yy>0 %},{{ yy }} years{% endif %}</p>
+                            <hr>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+{% endblock %}

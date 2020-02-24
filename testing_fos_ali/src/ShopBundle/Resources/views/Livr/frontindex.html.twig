@@ -1,0 +1,111 @@
+{% extends 'base2.html.twig' %}
+
+{% block username %} Adminstrator{% endblock %}
+
+{% block strong %}{%  endblock %}
+
+{%  block h2 %} {% endblock %}
+
+{% block path %}
+    {{ path('livr_indexAdmin') }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="breadcrumb parallax">
+        <h1>Register Account</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Account</a></li>
+            <li><a href="register.html">Register</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+    <div class="row">
+    <div class="col-sm-3 hidden-xs column-left" id="column-left">
+        <div class="Categories left-sidebar-widget">
+            <div class="columnblock-title">Account</div>
+            <div class="category_block">
+                <ul class="box-category">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="forgetpassword.html">Forgotten Password</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Address Book</a></li>
+                    <li><a href="#">Wish List</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Reward Points</a></li>
+                    <li><a href="#">Transactions</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">Recurring payments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-9" id="content">
+        <fieldset id="address">
+            <legend>Information Livraison</legend>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th style="width:60px;">Livr</th>
+            <th>Client Name</th>
+            <th>city</th>
+            <th>street</th>
+            <th>ville</th>
+            <th>codep</th>
+            <th>Email</th>
+            <th>tel</th>
+            <th>modelivraison</th>
+            <th>Action</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for livr in livrs %}
+            <tr>
+
+
+                <td><a href="{{ path('livr_show', { 'idv': livr.idv }) }}">{{ livr.idv }}</a></td>
+                <td>
+                    <a href="javascript:void(0);">{{ livr.namev }}</a>
+                </td>
+                <td>{{ livr.street }}</td>
+                <td>{{ livr.cite }}</td>
+                <td>{{ livr.ville }}</td>
+                <td>{{ livr.codep }}</td>
+                <td>{{ livr.emailv }}</td>
+                <td>{{ livr.tel }}</td>
+                <td>{{ livr.modelivrraison }}</td>
+
+
+                <td>
+                    <ol>
+                        <li>
+                            <a href="{{ path('livrfront_show', { 'idv': livr.idv }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('livrfront_edit', { 'idv': livr.idv }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('livrfront_delete', { 'idv': livr.idv }) }}">delete</a>
+                        </li>
+                    </ol>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+        </fieldset>
+
+
+
+    </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} ADMIN {% endblock %}
+{% block strong %}Veh ID {%  endblock %}
+
+    {% block h2 %} -  {{ rec.id }}{% endblock %}
+
+    {% block path %} {{ path('rec_index') }} {% endblock %}
+
+{% block body %}
+
+    <div class="row clearfix">
+            <div class="col-lg-8 col-md-12">
+                <div class="card">
+                    <div class="tab-content">
+
+                        <div class="tab-pane body active" id="about">
+
+                                <a role="button" class="boxs-close float-lg-right" href="{{ path('rec_delete',{ 'id': rec.id })}}"> Delete Ad <i class="zmdi zmdi-close"></i></a>
+
+
+                            <hr>
+                            <small class="text-muted">Designation: </small>
+                            <p>{{ rec.designation }}</p>
+                            <hr>
+
+                            <small class="text-muted">etat: </small>
+                            <p>{%  if rec.etat ==true %}
+                            traité
+                             {% else %}
+                            en cours
+                            {% endif %}</p>
+
+                            <hr>
+                            <small class="text-muted">categorie: </small>
+                            <p>{{ rec.idc.nomR }}</p>
+                            <hr>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

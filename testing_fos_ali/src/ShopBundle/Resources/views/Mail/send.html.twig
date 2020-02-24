@@ -1,0 +1,142 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} Adminstrator{% endblock %}
+
+{% block strong %}{%  endblock %}
+
+{%  block h2 %} {% endblock %}
+
+{% block path %}
+    {{ path('soc_index') }}
+{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="row clearfix">
+        <div class="col-lg-12">
+            <div class="card action_bar">
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-lg-1 col-md-2 col-3">
+                            <div class="checkbox inlineblock delete_all">
+                                <input id="deleteall" type="checkbox">
+                                <label for="deleteall">
+                                    All
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-4 col-6">
+                            <div class="input-group search">
+                                <!--input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-addon">
+                                        <i class="zmdi zmdi-search"></i>
+                                    </span-->
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-3 text-right">
+                            <div class="btn-group hidden-sm-down">
+                                <button type="button" class="btn btn-neutral dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span> </button>
+                                <ul class="dropdown-menu dropdown-menu-right pullDown">
+                                    <li><a href="javascript:void(0);">Unread</a></li>
+                                    <li><a href="javascript:void(0);">Unimportant</a></li>
+                                    <li><a href="javascript:void(0);">Add star</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="javascript:void(0);">Mute</a></li>
+                                </ul>
+                            </div>
+                            <div class="btn-group hidden-sm-down">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-neutral dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="zmdi zmdi-label"></i>
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-right pullDown">
+                                        <li>
+                                            <a href="javascript:void(0);">Family</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">Work</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">Google</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li>
+                                            <a href="javascript:void(0);">Create a Label</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btn-group hidden-md-down hidden-sm-down">
+                                <button type="button" class="btn btn-neutral dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-folder"></i> <span class="caret"></span> </button>
+                                <ul class="dropdown-menu dropdown-menu-right pullDown">
+                                    <li><a href="javascript:void(0);">Important</a></li>
+                                    <li><a href="javascript:void(0);">Social</a></li>
+                                    <li><a href="javascript:void(0);">Bank Statements</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="javascript:void(0);">Create a folder</a></li>
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-neutral hidden-sm-down">
+                                <i class="zmdi zmdi-plus-circle"></i>
+                            </button>
+                            <button type="button" class="btn btn-neutral hidden-sm-down">
+                                <i class="zmdi zmdi-archive"></i>
+                            </button>
+                            <button type="button" class="btn btn-neutral btn-danger">
+                                <i class="zmdi zmdi-delete"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="body">
+                    <div class="row">
+                        {{ form_start(form,{'attr': {'class': 'col-lg-12'}}) }}
+                        <div class="col-md-12 ">
+
+                            <div class="form-group form-float">
+                                {{ form_widget(form.mailto,{'attr': {'class': 'form-control','placeholder':'To:'}}) }}
+                            </div>
+                            {% if((form_errors(form.mailto)==true)) %}
+                                <div class="alert alert-primary" role="alert">
+                                    The Entered email is invalid!
+                                </div>  {% endif %}
+                        </div>
+
+                    <div class="col-md-12 ">
+                            <div class="form-group form-float">
+                                {{ form_widget(form.subject,{'attr': {'class': 'form-control','placeholder':'Subject'}}) }}
+                            </div>
+                        {% if((form_errors(form.subject)==true)) %}
+                        <div class="alert alert-primary" role="alert">
+                            Missing info!
+                        </div>  {% endif %}
+                    </div>
+                        <div class="col-md-12 col-lg-12 col-xl-12">
+                            <strong>Content:</strong>
+                            <div class="form-group form-float">
+                            {{ form_widget(form.object,{'attr': {'class': 'form-control','placeholder':'Object' }}) }}
+                        </div>  {% if((form_errors(form.object)==true)) %}
+                                <div class="alert alert-primary" role="alert">
+                                    Missing info!
+                                </div>  {% endif %}
+                        </div>
+        <button type="submit" class="btn btn-primary btn-round waves-effect m-t-20">Send Message</button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="post-project">
+    <h3>Info Livraison</h3>
+    <div class="post-project-fields">
+        <form>
+            <div class="row">
+
+        <div class="col-lg-12">
+
+
+                <th>Idv</th>
+                    {{ livr.idv }}
+            </div>
+                <div class="col-lg-12">
+
+
+                <th>Namev</th>
+                {{ livr.namev }}
+            </div>
+                        <div class="col-lg-12">
+
+
+                <th>Street</th>
+                {{ livr.street }}
+            </div>
+                                <div class="col-lg-12">
+
+
+                <th>Cite</th>
+                {{ livr.cite }}
+            </div>
+                                        <div class="col-lg-12">
+
+
+                <th>Ville</th>
+                {{ livr.ville }}
+            </div>
+                                                <div class="col-lg-12">
+
+
+                <th>Codep</th>
+                {{ livr.codep }}
+            </div>
+                                                        <div class="col-lg-12">
+
+
+                <th>Emailv</th>
+                {{ livr.emailv }}
+            </div>
+                                                                <div class="col-lg-12">
+
+
+                <th>Tel</th>
+                {{ livr.tel }}
+            </div>
+                                                                        <div class="col-lg-12">
+
+
+                <th>Modelivrraison</th>
+                {{ livr.modelivrraison }}
+                                                                        </div>
+
+
+    <ul>
+        <li>
+            <a href="{{ path('livr_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('livr_edit', { 'idv': livr.idv }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul></div>
+{% endblock %}

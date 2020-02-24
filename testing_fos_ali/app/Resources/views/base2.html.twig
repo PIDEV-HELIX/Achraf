@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MoonStore</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="e-commerce site well design with responsive view." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="{{ asset('templatef/image/favicon.png') }}" rel="icon" type="image/png">
+    <link href="{{ asset('templatef/css/bootstrap.min.css') }}" rel="stylesheet" media="screen" />
+    <link href="{{ asset('templatef/javascript/font-awesome/css/font-awesome.css') }}" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="{{ asset('templatef/css/stylesheet.css') }}" rel="stylesheet">
+    <link href="{{ asset('templatef/css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('templatef/javascript/owl-carousel/owl.carousel.css') }}" type="text/css" rel="stylesheet" media="screen" />
+    <link href="{{ asset('templatef/javascript/owl-carousel/owl.transitions.css') }}" type="text/css" rel="stylesheet" media="screen" />
+    <script type="text/javascript" src="{{ asset('templatef/javascript/jquery-2.1.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('templatef/javascript/bootstrap/js/bootstrap.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('templatef/javascript/template_js/jstree.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('templatef/javascript/template_js/template.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('templatef/javascript/common.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('templatef/javascript/global.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('templatef/javascript/owl-carousel/owl.carousel.min.js') }}"></script>
+</head>
+<body class="index">
+<div class="preloader loader" style="display: block;"> <img src="{{ asset('templatef/image/loader.gif') }}"  alt="#"/></div>
+<header>
+    <div class="container">
+        <div class="header-inner">
+            <div class="col-sm-3 col-xs-3 header-left">
+                <div id="logo"> <a href="index.html"><img src="{{ asset('templatef/image/logo.png') }}" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a> </div>
+            </div>
+            <div class="col-sm-9 col-xs-9 header-right">
+                <nav id="menu" class="navbar">
+                    <div class="nav-inner">
+                        <div class="navbar-header"><span id="category" class="visible-xs">Categories</span>
+                            <button type="button" class="btn btn-navbar navbar-toggle" ><i class="fa fa-bars"></i></button>
+                        </div>
+                        <div class="navbar-collapse pull-left">
+                            <ul class="main-navigation">
+                                <li><a href="{{ path('socfront_index') }}"   class="parent"  >Home</a> </li>
+                                <li><a href="category.html"   class="parent"  >Auto</a> </li>
+                                <li><a href="{{ path('rec_front') }}" class="active parent">Reclamation</a>
+                                    <ul>
+                                        <li><a href="{{ path('recfronta_index') }}">Liste reclamation</a></li>
+
+                                    </ul>
+                                </li>
+                                <li><a class="active parent">Produits</a>
+                                    <ul>
+                                        <li><a href="{{ path('Promotion_Front') }}">Solde</a></li>
+                                        <li><a href="{{ path('client') }}">List Produit</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{ path('livrfront_index') }}" class="active parent">Livraison</a></li>
+                                <li><a href="{{ path('comfront_index') }}" class="active parent">Commande</a></li>
+                                <li><a href="blog.html" class="parent"  >Blog</a></li>
+                                <li><a href="about-us.html" >About us</a></li>
+                                <li><a href="contact.html" >Contact Us</a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div id="cart" class="btn-group btn-block">
+                    <button type="button" class="btn btn-inverse btn-block btn-lg dropdown-toggle cart-dropdown-button"> <span id="cart-total"><span>Shopping Cart</span><br>
+        </span></button>
+                    <ul class="dropdown-menu pull-right cart-dropdown-menu">
+
+                        <li>
+                            <div>
+                                <p class="text-right">
+                                    <span class="btn-viewcart">
+                                        <a href="cart.html">
+                                            <strong>
+                                                <i class="fa fa-shopping-cart">
+                                                </i> View Cart</strong>
+                                        </a>
+                                    </span>
+                                    <span class="btn-checkout"><a href="{{ path('livr_front') }}">
+                                            <strong>
+                                                <i class="fa fa-share"></i> Checkout</strong></a></span>
+                                    <span class="btn-checkout"><a href="{{ path('com_front') }}">
+                                            <strong>
+                                                <i class="fa fa-share"></i> Commande</strong></a></span></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% block body %}
+{% endblock %}
+{% block footer %}
+<footer>
+    <div class="container">
+
+        <div class="footer-bottom">
+            <div id="bottom-footer">
+                <ul class="footer-link">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="copyright"> Copyright - <a class="yourstore" href="http://www.lionode.com/"> Created by Lionode &copy; 2017 </a></div>
+                <div class="footer-bottom-cms">
+                    <div class="footer-payment">
+                        <ul>
+                            <li class="mastero"><a href="#"><img alt="" src="{{ asset('templatef/image/payment/mastero.jpg') }}"></a></li>
+                            <li class="visa"><a href="#"><img alt="" src="{{ asset('templatef/image/payment/visa.jpg') }}"></a></li>
+                            <li class="currus"><a href="#"><img alt="" src="{{ asset('templatef/image/payment/currus.jpg') }}"></a></li>
+                            <li class="discover"><a href="#"><img alt="" src="{{ asset('templatef/image/payment/discover.jpg') }}"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="scrollup">Scroll</a>
+</footer>
+{% endblock %}
+</body>
+</html>

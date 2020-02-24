@@ -1,0 +1,79 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} {% endblock %}
+{% block strong %} {%  endblock %}
+
+    {% block h2 %} {% endblock %}
+
+    {% block path %} {{ path('societe_index') }} {% endblock %}
+
+{% block body %}
+
+
+
+    <div class="row clearfix">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>socites</strong> List  </h2>
+                            <ul class="header-dropdown">
+                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                        <li><a href="{{ path('societe_new') }}">new societe</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="body table-responsive members_profiles">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>soc ID</th>
+                                    <th style="width:60px;">Soc Logo</th>
+                                    <th>names</th>
+                                    <th>adresse</th>
+                                    <th>email</th>
+                                    <th>tel</th>
+
+                                    <th>Action</th>
+
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for societe in societes %}
+                                    <tr>
+
+                                        <td><a href="{{ path('societe_show', { 'ids': societe.ids }) }}">{{ societe.ids }}</a></td>
+                                        <td>
+                                            <img class="rounded-circle" src="{{ asset('uploads/images/' ~ societe.logo) }}" height="40" width="40">
+                                        </td>
+                                        <td>{{societe.names}}</td>
+                                        <td>{{ societe.address }}</td>
+                                        <td>{{ societe.email }}</td>
+
+                                        <td>{{ societe.tel }}</td>
+
+                                        <td>
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ path('societe_show', { 'ids': societe.ids }) }}">show</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('societe_edit', { 'ids': societe.ids }) }}">edit</a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock %}

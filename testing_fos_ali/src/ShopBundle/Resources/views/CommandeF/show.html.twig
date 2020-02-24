@@ -1,0 +1,47 @@
+{% extends 'admin.html.twig' %}
+
+{% block username %} ADMIN {% endblock %}
+{% block strong %}commande ID {%  endblock %}
+
+    {% block h2 %} -  {{ commandeF.idm }}{% endblock %}
+
+    {% block path %} {{ path('commandef_index') }} {% endblock %}
+
+{% block body %}
+
+    <div class="row clearfix">
+            <div class="col-lg-8 col-md-12">
+                <div class="card">
+                    <div class="tab-content">
+
+                        <div class="tab-pane body active" id="about">
+
+                                <a role="button" class="boxs-close float-lg-right" href="{{ path('commandef_delete',{ 'idm': commandeF.idm })}}"> Delete Ad <i class="zmdi zmdi-close"></i></a>
+
+                            <small class="text-muted">quantite </small>
+                            <p>{{ commandeF.quantite }}</p>
+                            <hr>
+
+                            <small class="text-muted">date: </small>
+                            <p>{{ commandeF.date| date("d/m/Y") }}</p>
+                            <hr>
+                            <small class="text-muted">societe: </small>
+                            <p>{{ commandeF.ids.names }}</p>
+                            <hr>
+                            <small class="text-muted">Prix nom: </small>
+                            <p>{{ commandeF.idp.nom }}</p>
+                            <hr>
+                            <small class="text-muted">Nombre de jour pour ce contrat restant: </small>
+                            <p>
+                                {% if jour=0 %} {{ jour }} jours{% endif %}{% if mois>0 %}, {{ mois }} mois{% endif %}{% if year>0 %},{{ year }} years{% endif %}</p>
+                            <hr>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Livrs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idv</th>
+                <th>Namev</th>
+                <th>Street</th>
+                <th>Cite</th>
+                <th>Ville</th>
+                <th>Codep</th>
+                <th>Emailv</th>
+                <th>Tel</th>
+                <th>Modelivrraison</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for livr in livrs %}
+            <tr>
+                <td><a href="{{ path('livr_show', { 'idv': livr.idv }) }}">{{ livr.idv }}</a></td>
+                <td>{{ livr.namev }}</td>
+                <td>{{ livr.street }}</td>
+                <td>{{ livr.cite }}</td>
+                <td>{{ livr.ville }}</td>
+                <td>{{ livr.codep }}</td>
+                <td>{{ livr.emailv }}</td>
+                <td>{{ livr.tel }}</td>
+                <td>{{ livr.modelivrraison }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('livr_show', { 'idv': livr.idv }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('livr_edit', { 'idv': livr.idv }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('livr_new') }}">Create a new livr</a>
+        </li>
+    </ul>
+{% endblock %}

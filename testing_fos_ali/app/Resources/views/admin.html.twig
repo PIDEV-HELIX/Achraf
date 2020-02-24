@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="no-js " lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <title>
+        {% block title %}:: Admin Dashboard ::
+        {% endblock %}
+    </title>
+
+    {% block stylesheets %}
+        <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
+        <link rel="stylesheet" href="{{ asset('Dashboard/assets/plugins/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('Dashboard/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('Dashboard/assets/plugins/morrisjs/morris.min.css') }}" />
+        <!-- Custom Css -->
+        <link rel="stylesheet" href="{{ asset('Dashboard/assets/css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('Dashboard/assets/css/color_skins.css') }}">
+    {% endblock %}
+</head>
+<body class="theme-purple">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="{{ asset('Dashboard/assets/images/logo.svg') }}" width="48" height="48" alt="Oreo"></div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+<!-- Top Bar -->
+{% block header %}
+    <nav class="navbar p-l-5 p-r-5">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <div class="navbar-header">
+                    <a href="javascript:void(0);" class="bars"></a>
+                    <a class="navbar-brand" href="index.html"><img src="{{ asset('Dashboard/assets/images/logo.svg') }}" width="30" ><span class="m-l-10">HELIX Stock</span></a>
+                </div>
+            </li>
+            <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a></li>
+            <li class="hidden-md-down"><a href="events.html" title="Events"><i class="zmdi zmdi-calendar"></i></a></li>
+            <li class="hidden-md-down"><a href="mail-inbox.html" title="Inbox"><i class="zmdi zmdi-email"></i></a></li>
+            <li><a href="contact.html" title="Contact List"><i class="zmdi zmdi-account-box-phone"></i></a></li>
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i>
+                    <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+                </a>
+
+            </li>
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i>
+                    <div class="notify">
+                        <span class="heartbit"></span>
+                        <span class="point"></span>
+                    </div>
+                </a>
+
+            </li>
+
+            <li class="float-right">
+                <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
+                <a href="sign-in.html" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+<!-- Left Sidebar -->
+{% block leftbar %}
+    <aside id="leftsidebar" class="sidebar">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dashboard"><i class="zmdi zmdi-home m-r-5"></i>Home</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane stretchRight active" id="dashboard">
+                <div class="menu">
+                    <ul class="list">
+                        <li>
+                            <div class="user-info">
+                                <div class="image"><a href="profile.html"><i class="zmdi zmdi-account m-r-1"></i></a></div>
+                                <div class="detail">
+                                    <h4>{% block username %}{% endblock %}</h4>
+
+                                </div>
+                                <a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a>
+                                <a title="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a>
+                                <a title="instagram" href="#"><i class="zmdi zmdi-instagram"></i></a>
+                            </div>
+                        </li>
+                        <li class="header">MAIN</li>
+                        <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+                            <ul class="ml-menu">
+                                <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Gestion d'affectation des livraisons</span></a>
+                                    <ul class="ml-menu">
+                                        <li class="active"><a href="{{ path('soc_index') }}">Societés de livraison</a> </li>
+                                        <li><a href="{{ path('veh_index') }}">Véhicules à nos services</a></li>
+                                        <li><a href="{{ path('livr_indexAdmin') }}">Livraisons<span class="badge bg-warning">{{ countLivr }}</span></a></li>
+                                    </ul>
+                                <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Gestion des Fournisseurs</span></a>
+                                    <ul class="ml-menu">
+                                        <li class="active"><a href="{{ path('cat_index') }}">Catégorie du fournisseur</a> </li>
+                                        <li class="active"><a href="{{ path('societe_index') }}">Fournisseur</a> </li>
+                                        <li class="active"><a href="{{ path('commandef_index') }}">Commande</a> </li>
+                                    </ul>
+                                <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Gestion des Réclamations</span></a>
+                                    <ul class="ml-menu">
+                                        <li class="active"><a href="{{ path('catr_index') }}">Catégorie du réclamation</a> </li>
+                                        <li class="active"><a href="{{ path('rec_index') }}">Liste réclamations</a> </li>
+                                    </ul>
+                                <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Gestion des Produits</span></a>
+                                    <ul class="ml-menu">
+                                        <li class="active">
+                                                <i class="fa fa-book"></i>
+
+                                            </a><a href="{{ path('Promotion_Affiche') }}">Promotions <span class="badge bg-warning">{{ countPromo }}</span></a> </li>
+                                        <li class="active"><a href="{{ path('Categorie_Affiche') }}">Categorie Produits</a> </li>
+                                        <li class="active"><a href="{{ path('Produit_Affiche') }}">Produits</a> </li>
+                                    </ul>
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+{% endblock %}
+<!-- Right Sidebar -->
+{% block rightbar %}
+    <aside id="rightsidebar" class="right-sidebar">
+
+    </aside>
+{% endblock %}
+<!-- Chat-launcher -->
+
+
+<!-- Main Content -->
+
+<section class="content home">
+
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+
+                <h2><strong>{% block strong %}Title 1 {% endblock %}</strong> {% block h2 %} Title 2 {% endblock %}</h2>
+
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="{% block path %} # {% endblock %}"><i class="zmdi zmdi-home"></i> Home</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% block body %}
+
+    {% endblock %}
+
+</section>
+
+<!-- Jquery Core Js -->
+{% block javascripts %}
+    <script src="{{ asset('Dashboard/assets/bundles/libscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+    <script src="{{ asset('Dashboard/assets/bundles/vendorscripts.bundle.js') }}"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+
+    <script src="{{ asset('Dashboard/assets/bundles/morrisscripts.bundle.js') }}"></script><!-- Morris Plugin Js -->
+    <script src="{{ asset('Dashboard/assets/bundles/jvectormap.bundle.js') }}"></script> <!-- JVectorMap Plugin Js -->
+    <script src="{{ asset('Dashboard/assets/bundles/knob.bundle.js') }}"></script> <!-- Jquery Knob, Count To, Sparkline Js -->
+
+    <script src="{{ asset('Dashboard/assets/bundles/mainscripts.bundle.js') }}"></script>
+    <script src="{{ asset('Dashboard/assets/js/pages/index.js') }}"></script>
+{% endblock %}
+</body>
+</html>

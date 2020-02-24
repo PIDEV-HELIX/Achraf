@@ -1,0 +1,63 @@
+<div class="row clearfix">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+            <div class="header">
+                <h2><strong>Vehs</strong> List  </h2>
+                <ul class="header-dropdown">
+                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                        <ul class="dropdown-menu dropdown-menu-right slideUp">
+                            <li><a href="{{ path('commandef_new') }}">new commande</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="body table-responsive members_profiles">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <!--th style="width:60px;">Soc Logo</th-->
+                        <th>commande ID</th>
+                        <th>quantite</th>
+                        <th>date</th>
+                        <th>societé</th>
+                        <th>produit</th>
+                        <th>Action</th>
+
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for commandeF in commandeFs %}
+                        <tr>
+
+
+                            <td><a href="{{ path('commandef_show', { 'idm': commandeF.idm }) }}">{{ commandeF.idm }}</a></td>
+
+                            <td>{{commandeF.quantite }}</td>
+                            <td>{{commandeF.date | date("d/m/Y")  }}</td>
+                            <td>{{ commandeF.ids.names }}</td>
+                            <td>{{ commandeF.idp.nom }}</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('commandef_show', { 'idm': commandeF.idm }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('commandef_edit', { 'idm': commandeF.idm }) }}">edit</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('commandef_index_pdf')}}">pdf</a>
+                                    </li>
+
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+{% extends "admin.html.twig" %}
+
+
+
+{% block strong %} Soc ID{%  endblock %}
+
+    {% block h2 %} -  {{ soc.ids }} {% endblock %}
+
+    {% block path %} {{ path('soc_index') }} {% endblock %}
+{% block body %}
+
+    <div class="row clearfix">
+            <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="tab-content">
+                        <div class="tab-pane body active" id="about">
+
+                                <a role="button" class="boxs-close float-lg-right" href="{{ path('soc_delete',{ 'ids': soc.ids})}}"> Delete Soc <i class="zmdi zmdi-close"></i></a>
+
+                            <div class="col-lg-12 col-md-4 col-12">
+                                <img class="  profile-image" src="{{ asset('uploads/images/' ~ soc.logo) }}" alt="user" width="600px" height="300px">
+                                <h4 class="m-t-0 m-b-0 "><strong>Soc</strong> {{ soc.names }}</h4>
+                                <hr>
+
+                            </div>
+
+                            <small class="text-muted">Email address: </small>
+                            <p>{{ soc.email }}</p>
+                            <hr>
+
+                            <small class="text-muted">Phone Number: </small>
+                            <p>+ 216 {{soc.tel}}</p>
+                            <hr>
+                            <small class="text-muted">Address: </small>
+                            <p>{{soc.address}}</p>
+                            <hr>
+                            <small class="text-muted">Description:</small>
+                            <p class="m-b-0">{{ soc.description }}</p>
+                            <div class="company-up-info">
+                            <ul>
+
+                                <li><a href="{{ path('admin_send', { 'ids': soc.ids }) }}" title="" class="message-us"><i class="fa fa-envelope"></i> Contact</a></li>
+                                <li><a href="{{ path('soc_user_show', { 'ids': soc.ids }) }}" title="" class="follow">View</a></li>
+                            </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Soc</strong> Veh <small>Advertisments List</small> </h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                    <li><a href="{{ path('veh_index') }}">Veh List</a></li>
+
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="body table-responsive members_profiles">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th style="width:60px;">Veh ID</th>
+                                <th>Debut Contrat</th>
+                                <th>Fin Contrat</th>
+                                <th>Serie</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for veh in vehs %}
+
+                                    <tr>
+                                        <td>{{ veh.idad }}</td>
+                                        <td>{{ veh.debutcontrat | date("d/m/Y") }}</td>
+                                        <td>{{ veh.fincontrat | date("d/m/Y")}}</td>
+                                        <td>{{ veh.serie }}</td>
+                                        <td>{{ veh.status }}</td>
+                                    </tr>
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+

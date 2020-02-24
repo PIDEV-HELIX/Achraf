@@ -1,0 +1,360 @@
+shop_homepage:
+    path:     /
+    defaults: { _controller: ShopBundle:Default:index }
+
+veh_new:
+    path:     /veh/new
+    defaults: { _controller: ShopBundle:Veh:new }
+
+veh_index:
+    path:     /veh
+    defaults: { _controller: ShopBundle:Veh:index }
+
+veh_show:
+    path:     /veh/show/{idad}
+    defaults: { _controller: ShopBundle:Veh:show }
+
+veh_edit:
+    path:     /veh/edit/{idad}
+    defaults: { _controller: ShopBundle:Veh:edit }
+
+veh_delete:
+    path:     /veh/delete/{idad}
+    defaults: { _controller: ShopBundle:Veh:delete }
+
+veh_nbr:
+    path:     /veh/nbr/{idad}
+    defaults: { _controller: ShopBundle:Veh:nbr}
+
+veh_temps:
+        path:     /veh/change/{idad}
+        defaults: { _controller: ShopBundle:Veh:ajoutertemps }
+
+
+soc_new:
+    path:     /soc/new
+    defaults: { _controller: ShopBundle:Soc:new }
+
+soc_index:
+    path:     /soc
+    defaults: { _controller: ShopBundle:Soc:index }
+
+soc_user_index:
+    path:     /soc/user
+    defaults: { _controller: ShopBundle:Soc:user_index }
+
+
+socfront_index:
+    path:     /soc/front
+    defaults: { _controller: ShopBundle:Soc:user_indexfront }
+soc_show:
+    path:     /soc/show/{ids}
+    defaults: { _controller: ShopBundle:Soc:show }
+
+soc_user_show:
+    path:     /soc/user/show/{ids}
+    defaults: { _controller: ShopBundle:Soc:user_show }
+
+soc_edit:
+    path:     /soc/edit/{ids}
+    defaults: { _controller: ShopBundle:Soc:edit }
+
+soc_delete:
+    path:     /soc/delete/{ids}
+    defaults: { _controller: ShopBundle:Soc:delete }
+
+admin_send:
+    path:     /mail/send/{ids}
+    defaults: { _controller: ShopBundle:Mail:send }
+
+mail_search:
+    path:   /inbox
+    defaults: { _controller: ShopBundle:Mail:search}
+
+
+livr_index:
+    path:     /livrr
+    defaults: { _controller: ShopBundle:Livr:index}
+
+livr_show:
+    path:     /{idv}/show
+    defaults: { _controller: ShopBundle:Livr:show }
+
+
+livr_new:
+    path:     /new
+    defaults: { _controller: ShopBundle:Livr:new }
+
+
+livr_edit:
+    path:     /edit/{idv}
+    defaults: { _controller: ShopBundle:Livr:edit }
+
+
+livr_delete:
+    path:     /delete/{idv}
+    defaults: { _controller: ShopBundle:Livr:delete }
+
+livr_trait:
+    path:     /traiter/{idv}
+    defaults: { _controller: ShopBundle:Livr:traiterLivr }
+
+livr_indexAdmin:
+    path:     /livr/Admin
+    defaults: { _controller: ShopBundle:Livr:indexLivrAdmin }
+
+livr_tri:
+    path:     /tri
+    defaults: { _controller: ShopBundle:Livr:tri }
+
+mail_searchh:
+    path:   /inboxx
+    defaults: { _controller: ShopBundle:Mail:searchh}
+
+cat_new:
+        path:     /cat/new
+        defaults: { _controller: ShopBundle:CategorieF:new }
+
+cat_index:
+        path:     /cat
+        defaults: { _controller: ShopBundle:CategorieF:index }
+
+cat_show:
+        path:     /cat/show/{idf}
+        defaults: { _controller: ShopBundle:CategorieF:show }
+
+cat_edit:
+        path:     /cat/edit/{idf}
+        defaults: { _controller: ShopBundle:CategorieF:edit }
+
+cat_delete:
+        path:     /cat/delete/{idf}
+        defaults: { _controller: ShopBundle:CategorieF:delete }
+
+societe_new:
+        path:     /societe/new
+        defaults: { _controller: ShopBundle:Societe:new }
+
+societe_index:
+        path:     /societe
+        defaults: { _controller: ShopBundle:Societe:index }
+
+societe_show:
+        path:     /societe/show/{ids}
+        defaults: { _controller: ShopBundle:Societe:show }
+
+
+societe_edit:
+        path:     /societe/edit/{ids}
+        defaults: { _controller: ShopBundle:Societe:edit }
+
+societe_delete:
+        path:     /societe/delete/{ids}
+        defaults: { _controller: ShopBundle:Societe:delete }
+
+catr_new:
+    path:     /catr/new
+    defaults: { _controller: ShopBundle:CategorieR:new }
+
+catr_index:
+    path:     /catr
+    defaults: { _controller: ShopBundle:CategorieR:index }
+
+catr_show:
+    path:     /catr/show/{idc}
+    defaults: { _controller: ShopBundle:CategorieR:show }
+
+catr_edit:
+    path:     /catr/edit/{idc}
+    defaults: { _controller: ShopBundle:CategorieR:edit }
+
+catr_delete:
+    path:     /catr/delete/{idc}
+    defaults: { _controller: ShopBundle:CategorieR:delete }
+
+rec_index:
+    path:     /listReclamationback
+    defaults: { _controller: ShopBundle:Reclamation:listReclamationback }
+
+rec_edit:
+    path:     /editReclamation/{id}
+    defaults: { _controller: ShopBundle:Reclamation:traiterReclamation }
+
+rec_show:
+    path:     /showReclamationback/{id}
+    defaults: { _controller: ShopBundle:Reclamation:showReclamationback}
+
+rec_new:
+    path:     /ajouterReclamation
+    defaults: { _controller: ShopBundle:Reclamation:createReclamation }
+
+rec_delete:
+    path:     /deleteReclamation/{id}
+    defaults: { _controller: ShopBundle:Reclamation:deleteReclamation }
+
+commandef_index:
+        path:     /listcom
+        defaults: { _controller: ShopBundle:commandeF:index }
+
+
+commandef_index_pdf:
+        path:     /comm
+        defaults: { _controller: ShopBundle:commandeF:indexpdf }
+
+commandef_show:
+        path:     /comm/show/{idm}
+        defaults: { _controller: ShopBundle:commandeF:show }
+
+
+commandef_new:
+        path:     /new/comm
+        defaults: { _controller: ShopBundle:commandeF:new }
+
+
+commandef_edit:
+        path:     /comm/edit/{idm}
+        defaults: { _controller: ShopBundle:commandeF:edit}
+
+
+commandef_delete:
+        path:    /comm/delete/{idm}
+        defaults: { _controller: ShopBundle:commandeF:delete}
+
+livr_pdf:
+    path:     /livr/pdf
+    defaults: { _controller: ShopBundle:Livr:pdf }
+
+livr_affect:
+        path:     /aff
+        defaults: { _controller: ShopBundle:Livr:affect }
+
+
+Promotion_Ajout:
+    path:     /admin/AjouterPromotion
+    defaults: { _controller: ShopBundle:Promotion:AjouterPromotion }
+
+Promotion_Affiche:
+    path:     /admin/AffichePromotion
+    defaults: { _controller: ShopBundle:Promotion:AffichePromotion }
+
+Promotion_Supprimer:
+    path:     /admin/SupprimerPromotion/{id}
+    defaults: { _controller: ShopBundle:Promotion:SupprimerPromotion }
+
+Promotion_Modifier:
+    path:     /admin/ModifierPromotion/{id}
+    defaults: { _controller: ShopBundle:Promotion:ModifierPromotion }
+Afficher_Produit_Categorie:
+    path:     /client/RechercheParCategorie/{id}
+    defaults: { _controller: ShopBundle:Categorie:AfficheCategorieProduit }
+
+Statistique:
+    path:     /statistique
+    defaults: { _controller: ShopBundle:Statistique:Statistique }
+
+Promotion_Front:
+    path:     /Promotion
+    defaults: { _controller: ShopBundle:Promotion:AffichePromotionFront }
+
+Categorie_Ajout:
+    path:     /admin/AjoutCategorie
+    defaults: { _controller: ShopBundle:Categorie:createcategorie }
+
+Categorie_Affiche:
+    path:     /admin/AfficheCategorie
+    defaults: { _controller: ShopBundle:Categorie:AfficheCategories }
+
+Categorie_Supprimer:
+    path:     /admin/SupprimerCategorie/{id}
+    defaults: { _controller: ShopBundle:Categorie:SupprimerCategories }
+
+Produit_Ajouter:
+        path:     /admin/AjouterProduit
+        defaults: { _controller: ShopBundle:Produit:AjouterProduit }
+
+Produit_Affiche:
+        path:     /admin/AfficheProduit
+        defaults: { _controller: ShopBundle:Produit:AfficheProduit }
+
+Produit_Supprimer:
+        path:     /admin/AfficheProduit/{idp}
+        defaults: { _controller: ShopBundle:Produit:SupprimerProduit }
+
+Produit_Modifier:
+        path:     /admin/AfficheModifier/{idp}
+        defaults: { _controller: ShopBundle:Produit:ModifierProduit }
+
+Produit_Stat:
+    path:     /admin/stat
+    defaults: { _controller: ShopBundle:Statistique:Statistique }
+
+
+livr_front:
+        path:     /front/livr/add
+        defaults: { _controller: ShopBundle:Livr:Frontnew }
+
+livrfront_show:
+        path:     /front/livr/show/{idv}
+        defaults: { _controller: ShopBundle:Livr:Frontshow }
+
+livrfront_index:
+        path:     /front/livr/index
+        defaults: { _controller: ShopBundle:Livr:Frontindex }
+
+livrfront_delete:
+    path:     /front/livr/delete/{idv}
+    defaults: { _controller: ShopBundle:Livr:Frontdelete }
+
+livrfront_edit:
+    path:     /front/livr/edit/{idv}
+    defaults: { _controller: ShopBundle:Livr:Frontedit }
+
+
+com_front:
+    path:     /front/com/add
+    defaults: { _controller: ShopBundle:commandeP:new}
+
+comfront_show:
+    path:     /front/com/show/{idcm}
+    defaults: { _controller: ShopBundle:commandeP:show }
+
+comfront_index:
+    path:     /front/com/index
+    defaults: { _controller: ShopBundle:commandeP:index }
+
+comfront_delete:
+    path:     /front/com/delete/{idcm}
+    defaults: { _controller: ShopBundle:commandeP:delete }
+
+comfront_edit:
+    path:     /front/com/edit/{idcm}
+    defaults: { _controller: ShopBundle:commandeP:edit }
+
+
+rec_front:
+    path:     /front/rec/add
+    defaults: { _controller: ShopBundle:Reclamation:createReclamationFront}
+
+recfront_show:
+    path:     /front/rec/show/{id}
+    defaults: { _controller: ShopBundle:Reclamation:show }
+
+recfront_index:
+    path:     /front/rec/indexx
+    defaults: { _controller: ShopBundle:Reclamation:listReclamationAll}
+
+recfronta_index:
+    path:     /front/rec/index
+    defaults: { _controller: ShopBundle:Reclamation:listReclamation}
+
+recfront_delete:
+    path:     /front/rec/delete/{id}
+    defaults: { _controller: ShopBundle:Reclamation:deleteReclamationback}
+
+recfront_edit:
+    path:     /front/rec/edit/{id}
+    defaults: { _controller: ShopBundle:Reclamation:frontedit }
+
+client:
+        path:     /front/client
+        defaults: { _controller: ShopBundle:Categorie:Parent }

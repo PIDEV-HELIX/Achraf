@@ -1,0 +1,86 @@
+{% extends 'admin.html.twig' %}
+
+
+{% block strong %}Veh {%  endblock %}
+
+    {% block h2 %} Information{% endblock %}
+
+    {% block path %} {{ path('rec_index') }} {% endblock %}
+
+{% block body %}
+
+
+
+
+    <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="block-header">
+                        </div>
+                        <div class="body">
+
+                            {{ form_start(form,{'attr': {'class': 'form-horizontal'}}) }}
+
+
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+                                    <label for="email_address_2">réclamation</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8">
+                                    <div class="form-group">
+                                        {{ form_widget(form.id,{'attr': {'class': 'form-control'}}) }}
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+                                    <label for="email_address_2">Designation</label>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i> </span>
+                                        {{ form_widget(form.designation,{'attr': {'class': 'form-control date','placeholder':'designation'}}) }}
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+                                    <label for="email_address_2">etat</label>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i> </span>
+                                        {{ form_widget(form.etat,{'attr': {'class': 'form-control date','placeholder':'etat'}}) }}
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 form-control-label">
+                                    <label for="password_2">categorie</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8">
+                                    <div class="form-group">
+                                        {{ form_widget(form.idc,{'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+
+                                <div class="col-sm-8 offset-sm-2">
+                                    <input type="submit" class="btn btn-raised btn-primary btn-round waves-effect" value="Add">
+                                </div>
+                            </div>
+                            {{ form_end(form) }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
